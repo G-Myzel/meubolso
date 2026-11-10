@@ -1,3 +1,6 @@
+import math
+
+
 def cost_breakdown(expenses):
     return sum(item["cost"] for item in expenses)
 
@@ -14,7 +17,7 @@ def user_input_cost():
         except ValueError:
             print("Digite um valor numérico.")
             continue
-        if valor <= 0:
+        if not math.isfinite(valor) or valor <= 0:
             print("O valor precisa ser maior que zero.")
             continue
         return valor
